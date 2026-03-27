@@ -18,6 +18,7 @@ export function createApp() {
   app.use(express.json());
   app.use(morgan("dev"));
 
+  app.get("/", (_req, res) => res.json({ ok: true }));
   app.get("/health", (_req, res) => res.json({ ok: true }));
 
   app.use("/api/auth", authRouter);
@@ -29,4 +30,3 @@ export function createApp() {
 
   return app;
 }
-
